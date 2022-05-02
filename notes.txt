@@ -1,0 +1,29 @@
+Starting Project Structure
+    asgi file is for asynchronous deployment
+    wsgi file is for synchronous deployment
+    settings.py manages the project settings
+        define base_dir from pathlib
+        secret key is part of security, should never be public
+        debug shows debug info, should be set to false in production
+        allowed hosts shows whitelisted hosts to run the django server
+        installed apps shows the apps installed in your project
+        root url is the path to the urls.py file
+        tenplates shows config objects for templates
+            'DIRS' shows paths for other template directories within apps
+        DATABASES is used for configuring databases 
+        the engine is the specific database, ex: postgres, mysql, etc
+        name is the name of the database
+        auth password validators checks for password security
+        language code shows the language you are using
+        time zone is the web server timezone
+        static url is the dit for staticfiles
+            css, js, images
+    manage.py is where we interact with the server as developers through the CLI
+    db.sqlite3 is the database file
+
+Apps and Structure
+    containerized module of code
+        ex Users, Billing, Leads apps
+        syntax for creating an app is `python -m manage startapp <app name>`
+        migrations folder shows database changes
+            
