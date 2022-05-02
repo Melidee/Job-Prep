@@ -36,8 +36,13 @@
 
 #Django models
     a model defines the sql schema
-    string values are defines as CharFields and must be given a max_length argument
-    int values are defined as IntegerFields and should be given a default
+    field types:
+        string values are defines as CharFields and must be given a max_length argument
+        int values are defined as IntegerFields and should be given a default
+        bool valued are BooleanFields and can only be true or false
+        images can be stored in ImageFields
+        many types of files can be stored in FileFields
+    fields can be given arguments like default, null, and blank to control their properties
     to initialize this model run python -m manage `makemigrations`
         after doing this we will see a new file in the migrations folder of our app
         this will create a new class `Migration`
