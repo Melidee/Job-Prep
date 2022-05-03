@@ -1,3 +1,6 @@
+#general django knowledge
+    `python -m manage shell` is an interpretive shell that can interact with the django project
+    `python -m manage createsuperuser` creates an admin user over the project
 #Starting Project Structure
     asgi file is for asynchronous deployment
     wsgi file is for synchronous deployment
@@ -67,4 +70,21 @@
             `from django.contrib.auth.models import AbstractUser`
             is a way to allow adding on to user models later on as project requirements expand
             if you dont want to change anything initally just pass in the class
-
+#Querysets and managers
+    Model Managers
+        to access the model manager use `<model>.objects`
+        we can now use this manager to do things
+            create
+                `<model>.objects.create(<params>)`
+                create is used to actually populate the sql table
+    Querysets
+        used to fetch data from the sql database
+            `<model>.objects.all()` is used to fetch all objects
+            `<model>.objects.filter(<attrs>)` is used to fetch objects with certain attributes
+                there are some switches like `__gt` to do things like fetch things greater than
+                `__lt` is less than
+            `<model>.objects.get(<attrs>)` gets a single object based on its attributes
+        the datatype returned by querys is called a queryset
+            can loop through it
+            can interact with it in templates
+    
