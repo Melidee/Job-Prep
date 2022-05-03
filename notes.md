@@ -20,7 +20,6 @@
             css, js, images
     manage.py is where we interact with the server as developers through the CLI
     db.sqlite3 is the database file
-
 #Apps and Structure
     containerized module of code
         ex Users, Billing, Leads apps
@@ -33,15 +32,20 @@
         tests.py is for writing tests
         views.py returns and handles web requests
     to register the app in the django project you need to include it in the settings.py/installed_apps list
-
 #Django models
     a model defines the sql schema
     field types:
         string values are defines as CharFields and must be given a max_length argument
+            Charfields can be given options parameters, which dont restrict the input possibilities but are used for forms
         int values are defined as IntegerFields and should be given a default
         bool valued are BooleanFields and can only be true or false
         images can be stored in ImageFields
         many types of files can be stored in FileFields
+        foreign keys:
+            used to connect database info between tables
+            must be put on the reciever of the data
+                leads have one agent but agents have many leads
+        OneToOneFields act the same as foreign keys but can only be mapped in a one to one relationship
     fields can be given arguments like default, null, and blank to control their properties
     to initialize this model run python -m manage `makemigrations`
         after doing this we will see a new file in the migrations folder of our app
@@ -55,3 +59,12 @@
                 database is not changed yet
     to finalize migrations run `python -m manage migrate`
         now our model is applied to our database
+    django provides custom templates for certain models
+        for example the user model
+            `from django.contrib.auth import get_user_model`
+            django recommends using custom user models
+        custom user models through inhereted models
+            `from django.contrib.auth.models import AbstractUser`
+            is a way to allow adding on to user models later on as project requirements expand
+            if you dont want to change anything initally just pass in the class
+
